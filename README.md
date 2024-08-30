@@ -1,7 +1,8 @@
 # FitnessTracker
 
 FitnessTracker is a simple fitness tracking application with a backend built using .NET 8 and the ABP framework, and a frontend developed with Angular 17. The database used is SQL Server.
-![Screenshot 2024-08-29 230754](https://github.com/user-attachments/assets/177da0f1-2a8c-41c0-bd4b-9f72ed30584e)
+
+![FitnessTracker](https://github.com/user-attachments/assets/2c07c104-ecc9-4cb5-a4d1-59e2969c7d75)
 
 ## Prerequisites
 
