@@ -9,7 +9,7 @@ FitnessTracker is a simple fitness tracking application with a backend built usi
 - Node.js (version 18 or later)
 - SQL Server
 - Angular CLI (version 17 or later)
-- ABP CLI
+- Typescript 5.2
 
 ## Getting Started
 
