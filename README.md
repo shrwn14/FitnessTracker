@@ -9,7 +9,7 @@ FitnessTracker is a simple fitness tracking application with a backend built usi
 - Node.js (version 18 or later)
 - SQL Server
 - Angular CLI (version 17 or later)
-- ABP CLI
+- Typescript 5.2
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ Before running the application, you need to update the connection strings in bot
 1. Run npm install
 
 ### 3. Running the application
-1. run the .net core project by setting the FitnessTracker.HttpApi.Host as the default project.
+1. run the .net core project by setting the FitnessTracker.HttpApi.Host as the start-up project.
 2. When the .net core app is loaded to the browser, go to the angular, in the command line run "ng serve -o" to run the angular application
 3. Username = admin, Password = 1q2w3E*
 ### SWAGGER
