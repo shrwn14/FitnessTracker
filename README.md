@@ -33,7 +33,7 @@ Before running the application, you need to update the connection strings in bot
 ### 3. Running the application
 1. run the .net core project by setting the FitnessTracker.HttpApi.Host as the default project.
 2. When the .net core app is loaded to the browser, go to the angular, in the command line run "ng serve -o" to run the angular application
-
+3. Username = admin, Password = 1q2w3E*
 ### SWAGGER
 ![api-endpoints](https://github.com/user-attachments/assets/eea74fe2-4da0-4229-8a25-a4e16e27ede5)
 
