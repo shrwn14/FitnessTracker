@@ -1,0 +1,103 @@
+ <!-- ======= Header ======= -->
+ <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <span class="d-none d-lg-block">FitnessTracker</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn" (click)="toggleSideBar()"></i>
+    </div><!-- End Logo -->
+  
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+  
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+  
+        <li class="nav-item dropdown pe-3">
+          
+
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-outline-secondary border-color-ddd" id="dropDownCurrentUser" ngbDropdownToggle>
+              {{currentUser.userName}}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropDownCurrentUser">
+              <button ngbDropdownItem>Test1</button>
+              <button ngbDropdownItem>Test2</button>
+              <button ngbDropdownItem (click)="logOut()">
+                <i class="bi bi-box-arrow-right"></i> Log-out
+              </button>
+            </div>
+          </div>
+
+          <!-- End Profile Dropdown Items -->
+
+      
+
+        </li><!-- End Profile Nav -->
+  
+      </ul>
+    </nav><!-- End Icons Navigation -->
+  
+  </header><!-- End Header -->
+  
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+  
+      <div ngbAccordion class="sidebar-nav border-0" id="sidebar-nav">
+        
+          <div  class="nav-item border-0">
+            <h2>
+              <button routerLink="/user/profile" routerLinkActive="active" class="nav-link  w-100 text-align-left">
+                <i class="bx bx-cog"></i>
+                <span>User Profile</span>
+              </button>
+            </h2>
+          </div>
+
+
+      </div>
+  
+    </aside><!-- End Sidebar-->
+  
+  <!-- Main Container -->
+  <main id="main" class="main">
+    <div class="pagetitle">
+        <h1>{{title}}</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            @for (item of breadcrumbs; track $index) {
+              <li class="breadcrumb-item" [ngClass]="{'active': item.isActive}">
+
+                  <a *ngIf="item.routerLink.length" [routerLink]="item.routerLink">{{item.label}}</a>
+                  <label *ngIf="!item.routerLink.length">{{item.label}}</label>
+
+              </li>
+            }
+          </ol>
+        </nav>
+    </div><!-- End Page Title -->
+  
+    <section class="section dashboard">
+        <!-- CONTENTS GOES HERE... -->
+        <router-outlet></router-outlet>
+  
+    </section>
+  </main>
+  <!-- End Main Container -->
+  
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>FitnessTracker</span></strong>. All Rights Reserved
+    </div>
+  </footer><!-- End Footer -->
+  
+  <a (click)="scrollToTop()" class="back-to-top d-flex align-items-center justify-content-center" [ngClass]="{'active': showBackToTopButton}"><i class="bi bi-arrow-up-short"></i></a>
+  
+  

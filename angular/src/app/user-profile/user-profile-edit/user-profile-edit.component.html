@@ -1,0 +1,63 @@
+<form [formGroup]="fg" (ngSubmit)="onSave()" [abpLoading]="loading">
+    <div class="modal-header">
+        <h4 class="modal-title">Edit Profile</h4>
+        <button type="button" class="btn-close fs-1" aria-label="Close" (click)="activeModal.dismiss('')"></button>
+    </div>
+    <div class="modal-body row">
+        <div class="col-sm-12">
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+            </div>
+
+            <div class="row">
+                <hr>
+            </div>
+
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Weight(kg)</label>
+                <div class="col-sm-9">
+                    <input (keyup)="computeBmi()" type="number" class="form-control" formControlName="weight" placeholder="kg">
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Height(cm)</label>
+                <div class="col-sm-9">
+                    <input (keyup)="computeBmi()" type="number" class="form-control" formControlName="height" placeholder="cm">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Birthdate</label>
+                <div class="col-sm-9">
+                    <input (change)="computeAge($event)" type="date" class="form-control" formControlName="birthdate" placeholder="mm/dd/yyyy">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Age</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="age" >
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">BMI</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="bmi" >
+                </div>
+            </div>
+        </div>   
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="fg.invalid || fg.pristine">
+            <i class="fa fa-save" aria-hidden="true"></i> Save
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('')">Close</button>
+    </div>
+</form>
+
+
+
+
+

@@ -1,0 +1,23 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">Confirm?</h4>
+        <button type="button" class="btn-close fs-1" aria-label="Close" (click)="activeModal.dismiss(false)"></button>
+    </div>
+    <div class="modal-body">
+        <p class="text-center">
+            <i class="bi bi-question-circle text-{{model.color}}" style="font-size:80px"></i>
+            <br>
+            {{model.message}}
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-{{model.color}}" (click)="activeModal.close(true)">
+            <i class="fa fa-check" aria-hidden="true"></i> {{model.yesBtnText || 'Yes, remove it!'}}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss(false)">
+            <i class="fa fa-times" aria-hidden="true"></i> {{model.noBtnText || "No, cancel it!"}}</button>
+    </div>
+</div>
+
+
+

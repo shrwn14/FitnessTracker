@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\settings",
+    "\\src\\app\\settings\\funding-bank",
+    "\\src\\app\\settings\\funding-bank\\funding-bank-ae",
+    "\\src\\app\\settings\\look-ups",
+    "\\src\\app\\settings\\look-ups\\modal",
+    "\\src\\app\\settings\\look-ups\\modal\\look-ups-ae",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\settings\\funding-bank\\funding-bank-ae\\funding-bank-ae.component.html",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,65 @@
+<div class="row" [abpLoading]="loading">
+    <div class="col-xl-4">
+
+      <div class="card">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+          <img src="assets/img/no-profile-img.jpg" style="width:180px;" alt="Profile" class="rounded-circle">
+          <br>
+          <h4>{{userProfile?.name}}</h4>
+          <br>
+          <div>
+            <button (click)="openEditModal()" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit Profile</button>
+          </div>
+          <div class="w-100 mt-2">
+            <table class="table table-sm table-bordered table-striped">
+                <tr>
+                    <td>Weight</td>
+                    <th>{{userProfile?.weight}}kg</th>
+                </tr>
+                <tr>
+                    <td>Height</td>
+                    <th>{{userProfile?.height}}cm</th>
+                </tr>
+                <tr>
+                    <td>Birthdate</td>
+                    <th>{{userProfile?.birthdate | date: 'MM/dd/yyyy'}}</th>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <th>{{userProfile?.age}} years old</th>
+                </tr>
+                <tr>
+                    <td>BMI</td>
+                    <th>{{userProfile?.bmi}}</th>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xl-8">
+
+      <div class="card">
+        <div class="card-body pt-3">
+          <ul ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav nav-tabs nav-tabs-bordered">
+            <li [ngbNavItem]="1" [destroyOnHide]="true" class="nav-item" >
+              <button ngbNavLink>Activity</button>
+              <ng-template ngbNavContent>
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                 <app-user-activity></app-user-activity>
+                </div>
+              </ng-template>
+            </li>
+
+          </ul>
+
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+      </div>
+
+    </div>
+</div>
+

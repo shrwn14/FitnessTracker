@@ -1,0 +1,70 @@
+<form [formGroup]="fg" (ngSubmit)="onSave()" [abpLoading]="loading">
+    <div class="modal-header">
+        <h4 class="modal-title">{{isAddMode ? 'Add' : 'Edit'}} Activity</h4>
+        <button type="button" class="btn-close fs-1" aria-label="Close" (click)="activeModal.dismiss('')"></button>
+    </div>
+    <div class="modal-body row">
+        <div class="col-sm-12">
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Location</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="location">
+                </div>
+            </div>
+
+            <div class="row">
+                <hr>
+            </div>
+
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Started</label>
+                <div class="col-sm-5">
+                    <input (change)="computeDurationAndAvePace()" type="date" class="form-control" formControlName="started">
+                </div>
+                <div class="col-sm-4">
+                    <input (change)="computeDurationAndAvePace()" type="time" class="form-control" formControlName="startedTime">
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Ended</label>
+                <div class="col-sm-5">
+                    <input (change)="computeDurationAndAvePace()" type="date" class="form-control" formControlName="ended">
+                </div>
+                <div class="col-sm-4">
+                    <input (change)="computeDurationAndAvePace()" type="time" class="form-control" formControlName="endedTime">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Distance(km)</label>
+                <div class="col-sm-9">
+                    <input (keyup)="computeDurationAndAvePace()" type="number" class="form-control" formControlName="distance">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Duration(mins)</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="duration" >
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-sm-3 col-form-label">Ave. Pace</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="averagePace" >
+                </div>
+            </div>
+        </div>   
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="fg.invalid || fg.pristine">
+            <i class="fa fa-save" aria-hidden="true"></i> Save
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('')">Close</button>
+    </div>
+</form>
+
+
+
+
+
+

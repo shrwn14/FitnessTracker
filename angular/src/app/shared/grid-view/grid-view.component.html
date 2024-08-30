@@ -1,0 +1,83 @@
+<div class="table-responsive">
+    <table class="table m-0" [ngClass]="{'table-striped': tableHasStripe, 
+                                    'table-bordered': tableHasBorder, 
+                                    'table-sm': tableIsSmall}">
+        <thead>
+            <tr>
+                <th class="align-middle text-center">#</th>
+                @for(col of columns; track col.propertyName) {
+                    <th class="cursor-pointer align-middle text-center" scope="col" [attr.sortable]="col.propertyName" sortable="{{col.propertyName}}" (sort)="onSort($event)">{{col.propertyLabel}}</th>
+                }
+
+                @if(editRoute.length || deleteRoute.length || editHandler.observers.length || deleteHandler.observers.length ) {
+                    <th>&nbsp;</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for(data of dataSource; track data[key];) {
+                <tr>
+                    <td class="align-middle text-center">{{$index + 1}}</td>
+                    @for(col of columns; track col.propertyName) {
+                        @if (col.dataType && col.dataType == 'date') {
+                            <td>{{data[col.propertyName] | date:'MM/dd/yyyy'}}</td>
+                        }
+                        @else if (col.dataType && col.dataType == 'datetime') {
+                            <td>{{data[col.propertyName] | date:'MM/dd/yyyy hh:mm a'}}</td>
+                        }
+                        @else if (col.dataType && col.dataType == 'number') {
+                            <td>{{data[col.propertyName] | number:'1.2-2'}}</td>
+                        }
+                        @else {
+                            <td>{{data[col.propertyName]}}</td>
+                        }
+                    }
+
+                    @if(editRoute.length || deleteRoute.length || editHandler.observers.length || deleteHandler.observers.length) {
+                        <td class="text-center align-middle">
+                            <a class="text-primary mx-1" *ngIf="editRoute.length" routerLink="{{editRoute + data[key]}}" placement="top" ngbTooltip="Edit">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <a class="text-primary mx-1" *ngIf="editHandler.observers.length" (click)="onEditHandlerClicked(data)" placement="top" ngbTooltip="Edit">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+
+                            <a class="text-danger mx-1" *ngIf="deleteRoute.length" routerLink="{{deleteRoute + data[key]}}" placement="top" ngbTooltip="Delete">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+
+                            <a class="text-danger mx-1" *ngIf="deleteHandler.observers.length" (click)="onDeleteHandlerClicked(data)" placement="top" ngbTooltip="Delete">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    }
+
+                </tr>
+            } @empty {
+            <tr>
+                <td class="text-center" [attr.colspan]="columns.length + 2">No records found.</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between pt-2">
+  <div>
+    <ngb-pagination [collectionSize]="collectionSize" 
+                    [(page)]="page"
+                    [pageSize]="pageSize"
+                    (pageChange)="onPageChange()" *ngIf="collectionSize">
+    </ngb-pagination>
+  </div>
+  <div *ngIf="collectionSize"><small>{{'Page ' + page + ' of ' + calculateTotalPages()}}</small></div>
+  <div>
+    <select class="form-select form-select-sm" [(ngModel)]="pageSize" (ngModelChange)="onPageChange()">
+        <option [ngValue]="50">50 items per page</option>
+        <option [ngValue]="100">100 items per page</option>
+        <option [ngValue]="200">200 items per page</option>
+        <option [ngValue]="500">500 items per page</option>
+        <option [ngValue]="1000">1,000 items per page</option>
+    </select>
+  </div>
+</div>

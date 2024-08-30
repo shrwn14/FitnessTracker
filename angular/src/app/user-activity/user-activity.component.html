@@ -1,0 +1,26 @@
+<div class="card m-0" [abpLoading]="loading">
+    <div class="card-body p-3">
+        <div class="d-flex justify-content-between pb-2">
+            <div>
+            </div>
+
+            <div>
+                <a class="btn btn-outline-primary rounded-circle btn-sm me-1" (click)="openAddEditModal(newUserActivity)" placement="top" ngbTooltip="Add New"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                <a class="btn btn-outline-primary rounded-circle btn-sm me-1" (click)="getActivityList(filter)" placement="top" ngbTooltip="Refresh"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <app-grid-view
+            [key]="'id'"
+            [columns]="columns"
+            [dataSource]="dataSource"
+            [collectionSize]="totalCount"
+            [page]="page"
+            [pageSize]="pageSize"
+            [filter]="filter"
+            (eventHandler)="getActivityList($event)"
+            (editHandler)="openAddEditModal($event)"
+            (deleteHandler)="onConfirmDelete($event)"
+        ></app-grid-view>
+    </div>
+</div>
