@@ -31,7 +31,7 @@ Before running the application, you need to update the connection strings in bot
 1. Run npm install
 
 ### 3. Running the application
-1. run the .net core project by setting the FitnessTracker.HttpApi.Host as the default project.
+1. run the .net core project by setting the FitnessTracker.HttpApi.Host as the start-up project.
 2. When the .net core app is loaded to the browser, go to the angular, in the command line run "ng serve -o" to run the angular application
 3. Username = admin, Password = 1q2w3E*
 ### SWAGGER
