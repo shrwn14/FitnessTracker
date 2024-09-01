@@ -41,6 +41,6 @@ Before running the application, you need to update the connection strings in bot
 ### UNIT TEST
 ![uni-test](https://github.com/user-attachments/assets/0c9f30de-1218-411d-9e55-7cb9c20d103d)
 
-### Logging using Serilog (can be improved in the future to use open telemetry with seq)
+### Logging using Serilog 
 ![image](https://github.com/user-attachments/assets/8b6dbfa5-43a2-4c89-8a04-ba70187ac7be)
 
